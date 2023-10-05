@@ -238,21 +238,21 @@ const updateInstanceInDatabase = (modelType, instance) => {
   }
 }
 
-const deleteFromDatabasebyId = (modelType, id) => {
-  const model = findDataArrayByName(modelType);
-  if (model === null) {
-    return null;
-  }
-  let index = model.data.findIndex((element) => {
-    return element.id === id;
-  });
-  if (index !== -1) {
-    model.data.splice(index, 1);
-    return true;
-  } else {
-    return false;
-  }
-}
+const deleteFromDatabaseById = (modelType, id) => {
+    const model = findDataArrayByName(modelType);
+    if (model === null) {
+        return null;
+    }
+    let index = model.data.findIndex((element) => {
+        return element.id === id;
+    });
+    if (index !== -1) {
+        model.data.splice(index, 1);
+        return true;
+    } else {
+        return false;
+    }
+};
 
 const deleteAllFromDatabase = (modelType) => {
   const model = findDataArrayByName(modelType);
@@ -264,11 +264,11 @@ const deleteAllFromDatabase = (modelType) => {
 }
 
 module.exports = {
-  createMeeting,
-  getAllFromDatabase,
-  getFromDatabaseById,
-  addToDatabase,
-  updateInstanceInDatabase,
-  deleteFromDatabasebyId,
-  deleteAllFromDatabase,
+    createMeeting,
+    getAllFromDatabase,
+    getFromDatabaseById,
+    addToDatabase,
+    updateInstanceInDatabase,
+    deleteFromDatabaseById,
+    deleteAllFromDatabase,
 };
